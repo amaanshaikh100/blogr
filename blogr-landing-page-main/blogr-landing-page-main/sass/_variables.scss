@@ -1,0 +1,47 @@
+// COLORS
+
+// PRIMARY COLORS
+$light-red-1: #ff525d;
+$light-red-2: #ff7a85;
+$dark-blue: #1f3f5b;
+
+// NEUTRAL
+$white: #ffffff;
+$grey-blue: #c8c8cb;
+$dark-grey-blue-1: #4b5862;
+$dark-black: #25252d;
+
+// GRADIENTS
+$light-red-3: rgb(255, 143, 112);
+$light-red-4: rgb(255, 61, 84);
+$dark-grey-blue-2: rgb(44, 45, 63);
+$dark-grey-blue-3: rgb(63, 65, 100);
+
+// FONTS
+$ff-main: 'Overpass', sans-serif;
+
+$fw-400: 400;
+$fw-500: 500;
+$fw-700: 700;
+
+/*********************************************/
+// BREAKPOINTS
+/*********************************************/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content; } // 600px
+    }
+
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) { @content; } // 900px
+    }
+
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) { @content; } // 1200px
+    }
+
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) { @content; } // 1800px
+    }
+   
+}

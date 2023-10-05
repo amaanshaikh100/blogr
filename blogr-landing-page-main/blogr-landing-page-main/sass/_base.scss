@@ -1,0 +1,177 @@
+/*********************************************/
+// CSS SETTINGS
+/*********************************************/
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+    font-family: $ff-main;
+    font-weight: $fw-400;
+}
+
+/*********************************************/
+// UTILITIES
+/*********************************************/
+// utilities - margin-bottom
+.u-mb-sm { margin-bottom: 1rem; } // margin-bottom-small
+.u-mb-md { margin-bottom: 2rem; } // margin-bottom-medium
+.u-mb-big { margin-bottom: 6rem; } // margin-bottom-big
+
+// margin-top
+.u-mt { margin-top: 3rem; }
+
+.u-center { text-align: center; } // centers the text
+
+// REUSABLE-CONTAINER
+.container {
+    max-width: 140rem;
+    padding: 0 10rem;
+    margin: 0 auto;
+
+    @include respond(tab-port) {
+        padding: 0 4rem;
+    }
+
+    @include respond(phone) {
+        padding: 0 6rem;
+    }
+}
+
+/*********************************************/
+// GRIDS
+/*********************************************/
+.grid {
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 4.5rem;
+    align-items: center;
+
+    transform: translateY(-14rem);
+
+    @include respond(tab-land) {
+        transform: translateY(0);
+        grid-column-gap: 2rem;
+    }
+
+    @include respond(tab-port) {
+        grid-template-columns: 1fr;
+        align-items: start;
+        grid-auto-rows: auto;
+    }
+}
+
+.grid-col-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @include respond(tab-port) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-row-gap: 6rem;
+    }
+}
+
+/*********************************************/
+// TYPOGRAPHY
+/*********************************************/
+.heading-primary {
+    color: $white;
+    font-size: 6rem;
+    font-weight: $fw-500;
+
+    @include respond(phone) {
+        font-size: 4rem;
+    }
+}
+
+.heading-secondary {
+    font-size: 3.2rem;
+    font-weight: $fw-500;
+    color: $dark-grey-blue-3;
+
+    &--white {
+        color: $white;
+    }
+}
+
+.heading-tertiary {
+    font-size: 2.1rem;
+    color: $dark-grey-blue-2;
+}
+
+/*********************************************/
+// COMPONENTS
+/*********************************************/
+// BUTTON COMPONENTS
+.btn {
+    
+    // rule for general button
+    &:link,
+    &:visited {
+        display: inline-block;
+        text-decoration: none;
+        padding: 1rem 1.4rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+        border-radius: 100px;
+    }
+
+    &:not(:last-child) {
+        margin-right: 2rem;
+    }
+
+    // primary button
+    &--primary {
+        background-color: $white;
+        color: $light-red-1;
+        transition: all .3s ease-in;
+
+        &:hover {
+            color: $white;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    // secondary button
+    &--secondary {
+        border: 1px solid $white;
+        color: $white;
+        background-color: transparent;
+        transition: all .3s ease-in;
+
+        &:hover {
+            color: $light-red-1;
+            background-color: $white;
+        }
+    }
+
+    // simple login button without background color
+    &--login {
+        color: $white;
+        text-decoration: none;
+        font-size: 1.6rem;
+    }
+}
